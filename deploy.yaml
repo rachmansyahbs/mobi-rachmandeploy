@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rachmanapp1
+  name: rachmanapp1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rachmanapp1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rachmanapp1
+    spec:
+      containers:
+      - image: rbsetiawan/rachmanmobi:appv1
+        name: rachmanmobi
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
