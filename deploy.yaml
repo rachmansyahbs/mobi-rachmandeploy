@@ -5,6 +5,7 @@ metadata:
   labels:
     app: rachmanapp1
   name: rachmanapp1
+  namespace: rachman-project
 spec:
   replicas: 1
   selector:
@@ -24,3 +25,25 @@ spec:
         - containerPort: 80
         resources: {}
 status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rachmansvc1
+  name: rachmansvc1
+  namespace: rachman-project
+spec:
+  ports:
+  - name: 1429-80
+    port: 1429
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: rachmanapp1
+  type: NodePort
+status:
+  loadBalancer: {}
